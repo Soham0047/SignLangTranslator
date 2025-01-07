@@ -1,92 +1,133 @@
-<<<<<<< HEAD
-# Sign2Text2Speech
-This is a Python-based project that converts hand signs into text using Mediapipe and a trained machine learning model, and further transforms the text into speech via Amazon Polly. It supports real-time recognition of A-Z and 0-9, leveraging data preprocessing, feature normalization, and advanced classifiers for accuracy.
-=======
-SignLangTranslator
-SignLangTranslator is a Python-based application that translates hand signs into text and converts the text into speech using Amazon Polly. The project supports real-time recognition of letters (A-Z) and numbers (0-9) and employs Mediapipe for landmark detection and machine learning for classification.
+# Sign Language Translator
 
-Features
-Real-time hand sign recognition using a webcam.
-Supports letters (A-Z) and numbers (0-9).
-Converts recognized text into speech using Amazon Polly.
-Data preprocessing with Mediapipe for accurate landmark detection.
-Machine learning model trained on normalized hand landmark features.
-Robust text smoothing with sliding window predictions.
-Technologies Used
-Python
-OpenCV: For capturing webcam input.
-Mediapipe: For hand landmark detection.
-Scikit-learn: For machine learning model training.
-Amazon Polly: For text-to-speech conversion.
-NumPy: For data manipulation and saving.
-Matplotlib: For optional data visualization.
-Getting Started
-Prerequisites
-Python 3.7 or above
-Install the required Python packages:
-bash
-Copy code
-pip install -r requirements.txt
-Setup Amazon Polly
-Configure AWS CLI with your credentials:
-bash
-Copy code
-aws configure
-Set up an IAM user with access to Amazon Polly.
-Project Structure
-bash
-Copy code
-SignLangTranslator/
+A machine vision and deep learning-based solution for translating sign language gestures into text or speech. This project aims to bridge the communication gap between individuals who use sign language and those who do not.
+
+---
+
+## 🚀 Features
+
+- **Image Collection**: Automatically captures and collects images required for gesture recognition.
+- **Dataset Creation**: Prepares a comprehensive dataset for training.
+- **Model Training**: Includes a script to train a classifier for recognizing sign language gestures.
+- **Inference**: Real-time or pre-recorded gesture translation into text/speech.
+- **User-Friendly**: Easily extendable and adaptable to other sign languages or datasets.
+
+---
+
+## 🛠️ Technologies Used
+
+- **Programming Language**: Python
+- **Libraries and Tools**:
+  - OpenCV for real-time image processing
+  - TensorFlow/Keras or PyTorch for training the classifier
+  - Numpy, Pandas - for data processing.
+
+---
+
+## 📁 Project Structure
+
+```markdown
+├── scripts/                     # All scripts related to main functionalities
+│   ├── imageCollection.py       # Script to collect sign language images
+│   ├── createDataset.py         # Script to preprocess and organize datasets
+│   ├── trainClassifier.py       # Script for training the model
+│   ├── inferenceClassifier.py   # Script for running predictions
 │
-├── data/                  # Collected hand sign images
-├── scripts/               # Python scripts
-│   ├── imageCollection.py    # Captures hand sign images
-│   ├── createDataset.py      # Processes images into landmarks
-│   ├── trainClassifier.py    # Trains the machine learning model
-│   ├── inferenceClassifier.py# Real-time hand sign recognition
-│
-├── models/               # Saved machine learning model
-│   └── model.p
-├── audio/                # Generated speech files
-│   └── output.mp3
-├── requirements.txt      # Python dependencies
-├── README.md             # Project documentation
-How It Works
-Data Collection:
+├── README.md                    # Project documentation (this file)
+├── .gitignore                   # List of ignored files and directories
+```
 
-Run imageCollection.py to capture images of hand signs.
-Augments data for improved accuracy.
-Preprocessing:
+---
 
-Run createDataset.py to extract and normalize hand landmarks from images.
-Saves the dataset in data.npy and labels.npy.
-Model Training:
+## 🧩 Prerequisites
 
-Run trainClassifier.py to train a machine learning model on the dataset.
-The model is saved in models/model.p.
-Real-Time Recognition:
+Before running the application, make sure to install the following:
 
-Run inferenceClassifier.py to recognize hand signs in real-time.
-Converts recognized text into speech using Amazon Polly.
-Usage
-Run the application:
-bash
-Copy code
-python scripts/inferenceClassifier.py
-Controls:
-Perform hand signs in front of the webcam.
-Press SPACE to convert the text to speech.
-Press ESC to exit.
-Future Enhancements
-Add support for gestures representing common phrases.
-Train on larger, more diverse datasets for improved accuracy.
-Implement multilingual speech synthesis via Amazon Polly.
-Add support for dynamic gestures (e.g., "hello," "thank you").
-Contributing
-Contributions are welcome! Feel free to submit pull requests or report issues.
+1. **Python 3.8 or higher** - [Download Python](https://www.python.org/downloads/).
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+---
 
-Let me know if you'd like help creating or refining any specific section!
->>>>>>> 5c4f9c3 (Initial commit: Sign Language Translator with Mediapipe and Polly)
+## ⚙️ Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd Sign-Language-Translator
+   ```
+
+2. Set up a Python virtual environment:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate   # On macOS or Linux
+   .venv\Scripts\activate      # On Windows
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+## ▶️ Usage
+
+1. **Run Image Collection Script**:
+   Collect hand gesture images to create a dataset:
+   ```bash
+   python scripts/imageCollection.py
+   ```
+
+2. **Create Dataset**:
+   Process the collected images into labeled datasets.
+   ```bash
+   python scripts/createDataset.py
+   ```
+
+3. **Train the Classifier**:
+   Train a machine learning model to recognize gestures.
+   ```bash
+   python scripts/trainClassifier.py
+   ```
+
+4. **Run Inference**:
+   Translate sign language into text or speech using the trained model.
+   ```bash
+   python scripts/inferenceClassifier.py
+   ```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new feature branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit changes:
+   ```bash
+   git commit -m "Add your message"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Submit a pull request.
+
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🌟 Acknowledgements
+
+Special thanks to the developers of libraries like TensorFlow, OpenCV, and others that made this project possible.
